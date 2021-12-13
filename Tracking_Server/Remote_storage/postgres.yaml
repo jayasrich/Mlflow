@@ -30,6 +30,7 @@ spec:
       containers:
       - name: mlflow-postgres
         image: postgres:11
+        imagePullPolicy: Never
         ports:
         - containerPort: 5432
           protocol: TCP
@@ -39,7 +40,7 @@ spec:
         resources:
           requests:
             memory: "1Gi"
-            cpu: "500m"
+            cpu: "0"
         volumeMounts:
         - name: mlflow-pvc
           mountPath: /var/lib/postgresql/mlflow
